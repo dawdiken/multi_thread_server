@@ -8,18 +8,21 @@ public class WorkerRunnable implements Runnable{
 
     protected Socket clientSocket = null;
     protected String serverText   = null;
+    int counter;
 
-    public WorkerRunnable(Socket clientSocket, String serverText) {
+    public WorkerRunnable(Socket clientSocket, String serverText, int counter) {
         this.clientSocket = clientSocket;
         this.serverText   = serverText;
+        this.counter = counter;
     }
 
     public void run() {
         try {
+            //counter ++;
             InputStream input  = clientSocket.getInputStream();
             OutputStream output = clientSocket.getOutputStream();
             long time = System.currentTimeMillis();
-            output.write(("HTTP/1.1 200 OK\n\nWorkerRunnable: " +
+            output.write(("HTTP/1.1 200 OK\n\nWorkerRunnable: " +"counter = "+ this.counter +
                     this.serverText + " - " +
                     time +
                     "").getBytes());

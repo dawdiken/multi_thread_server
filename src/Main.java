@@ -2,9 +2,9 @@
 public class Main {
     public static void main(String[] args) {
 
-
         new getIpAddress();
-        Server server = new Server(8080);
+        Server server = new Server(9000);
+        server.setDefaultCloseOperation(3);
         new Thread(server).start();
 
         try {
