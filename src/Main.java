@@ -1,6 +1,10 @@
+
 public class Main {
     public static void main(String[] args) {
-        Server server = new Server(9000);
+
+
+        new getIpAddress();
+        Server server = new Server(8080);
         new Thread(server).start();
 
         try {
